@@ -1,5 +1,87 @@
 /* NAV SECTION */ 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .nav-wrapper {
+    background: #F7FBF7;
+    border-bottom: 1px solid hsl(0, 0%, 91%);
+    padding: 0 2rem;
+    font-family: sans-serif;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .brand-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: #6b8a00;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-login,
+  .btn-register {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 9px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #D4E952;
+    color: #3a4f00;
+    transition: background 0.2s;
+  }
+
+  .btn-login:hover,
+  .btn-register:hover {
+    background: #c2d840;
+  }
+
 /* HERO SECTION */
 
 /* BENEFITS SECTION */
