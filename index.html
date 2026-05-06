@@ -1,329 +1,447 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>FruitLogix</title>
 </head>
-
 <body>
+
     <!-- NAV SECTION -->
     <div class="nav-wrapper">
         <nav class="nav" aria-label="Navegación principal">
+
             <a href="#" class="nav-brand">
                 <img src="assets/images/logo.ico" alt="FruitLogix logo" class="brand-icon">
                 <span class="brand-name">FruitLogix</span>
             </a>
+
+            <!-- Desktop: links + actions (hidden on mobile via CSS) -->
             <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Beneficios</a></li>
-                <li><a href="#">Clientes</a></li>
-                <li><a href="#">Testimonios</a></li>
+                <li><a href="#" data-i18n="nav.inicio">Inicio</a></li>
+                <li><a href="#" data-i18n="nav.beneficios">Beneficios</a></li>
+                <li><a href="#" data-i18n="nav.clientes">Clientes</a></li>
+                <li><a href="#" data-i18n="nav.testimonios">Testimonios</a></li>
             </ul>
+
             <div class="nav-actions">
-                <button class="btn-login">Iniciar Sesión</button>
-                <button class="btn-register">Registrarse</button>
+                <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+                    <button data-lang="es" class="lang-active" aria-label="Español">ES</button>
+                    <button data-lang="en" aria-label="English">EN</button>
+                </div>
+                <button class="btn-login"    data-i18n="nav.login">Iniciar Sesión</button>
+                <button class="btn-register" data-i18n="nav.register">Registrarse</button>
             </div>
+
+            <!-- Hamburger button (visible on mobile) -->
+            <button class="nav-hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
         </nav>
     </div>
 
+    <!-- MOBILE MENU OVERLAY -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <ul class="nav-links">
+            <li><a href="#" data-i18n="nav.inicio"      onclick="closeMobileMenu()">Inicio</a></li>
+            <li><a href="#" data-i18n="nav.beneficios"  onclick="closeMobileMenu()">Beneficios</a></li>
+            <li><a href="#" data-i18n="nav.clientes"    onclick="closeMobileMenu()">Clientes</a></li>
+            <li><a href="#" data-i18n="nav.testimonios" onclick="closeMobileMenu()">Testimonios</a></li>
+        </ul>
+        <div class="nav-actions">
+            <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+                <button data-lang="es" class="lang-active" aria-label="Español">ES</button>
+                <button data-lang="en" aria-label="English">EN</button>
+            </div>
+            <button class="btn-login"    data-i18n="nav.login">Iniciar Sesión</button>
+            <button class="btn-register" data-i18n="nav.register">Registrarse</button>
+        </div>
+    </div>
+
     <!-- HERO SECTION -->
-  <section class="hero">
+    <section class="hero">
 
-    <div class="hero-left">
-      <div class="hero-heading">
-        <h1 class="hero-title">Optimiza tu<br>cadena de<br>suministro</h1>
-        <p class="hero-title-accent">desde<br>el campo.</p>
-      </div>
-      <p class="hero-desc">
-        Monitoreo en tiempo real con sensores IoT de grado industrial.
-        Mantén la frescura, reduce el desperdicio y maximiza la
-        rentabilidad de cada cosecha.
-      </p>
-      <div class="hero-actions">
-        <button class="btn-primary">Comenzar Ahora</button>
-        <button class="btn-outline">
-          <span class="play-icon">
-            <span class="play-triangle"></span>
-          </span>
-          Ver Demo
-        </button>
-      </div>
-    </div>
-
-    <div class="hero-image-box">
-      <img src="assets/images/hero-farmer.jpg" alt="Agricultor en campo" class="hero-img">
-    </div>
-
-    <div class="chain-row">
-      <div class="chain-node">
-        <div class="chain-icon">
-          <!-- Icono casa / productor -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#3d5e00" stroke-width="1.5" fill="#D4E952"
-              fill-opacity="0.3" />
-            <path d="M9 22V12h6v10" stroke="#3d5e00" stroke-width="1.5" />
-          </svg>
+        <div class="hero-left">
+            <div class="hero-heading">
+                <h1 class="hero-title"        data-i18n="hero.title">Optimiza tu cadena de suministro</h1>
+                <p  class="hero-title-accent" data-i18n="hero.title.accent">desde el campo.</p>
+            </div>
+            <p class="hero-desc" data-i18n="hero.desc">
+                Monitoreo en tiempo real con sensores IoT de grado industrial.
+                Mantén la frescura, reduce el desperdicio y maximiza la rentabilidad de cada cosecha.
+            </p>
+            <div class="hero-actions">
+                <button class="btn-primary" data-i18n="hero.cta.primary">Comenzar Ahora</button>
+                <button class="btn-outline">
+                    <span class="play-icon"><span class="play-triangle"></span></span>
+                    <span data-i18n="hero.cta.demo">Ver Demo</span>
+                </button>
+            </div>
         </div>
-        <span class="chain-label">Producer</span>
-      </div>
 
-      <div class="chain-connector"></div>
-      <div class="chain-dot-connector"></div>
-      <div class="chain-connector"></div>
-
-      <div class="chain-node">
-        <div class="chain-icon">
-          <!-- Icono camión / distribuidor -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="8" width="22" height="10" rx="2" stroke="#3d5e00" stroke-width="1.5" fill="#D4E952"
-              fill-opacity="0.3" />
-            <path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2" stroke="#3d5e00" stroke-width="1.5" />
-            <circle cx="6" cy="20" r="2" fill="#3d5e00" />
-            <circle cx="18" cy="20" r="2" fill="#3d5e00" />
-          </svg>
+        <div class="hero-image-box">
+            <img src="assets/images/hero-farmer.jpg" alt="Agricultor en campo" class="hero-img">
         </div>
-        <span class="chain-label">Distributor</span>
-      </div>
 
-      <div class="chain-connector"></div>
-      <div class="chain-dot-connector"></div>
-      <div class="chain-connector"></div>
-
-      <div class="chain-node">
-        <div class="chain-icon">
-          <!-- Icono tienda / retailer -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 3h18v4H3z" stroke="#3d5e00" stroke-width="1.5" fill="#D4E952" fill-opacity="0.3" />
-            <path d="M3 7v14h18V7" stroke="#3d5e00" stroke-width="1.5" />
-            <path d="M9 7v14M15 7v14" stroke="#3d5e00" stroke-width="1" opacity="0.5" />
-          </svg>
+        <div class="chain-row">
+            <div class="chain-node">
+                <div class="chain-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#3d5e00" stroke-width="1.5" fill="#D4E952" fill-opacity="0.3"/>
+                        <path d="M9 22V12h6v10" stroke="#3d5e00" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <span class="chain-label" data-i18n="chain.producer">Productor</span>
+            </div>
+            <div class="chain-connector"></div>
+            <div class="chain-dot-connector"></div>
+            <div class="chain-connector"></div>
+            <div class="chain-node">
+                <div class="chain-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="1" y="8" width="22" height="10" rx="2" stroke="#3d5e00" stroke-width="1.5" fill="#D4E952" fill-opacity="0.3"/>
+                        <path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2" stroke="#3d5e00" stroke-width="1.5"/>
+                        <circle cx="6" cy="20" r="2" fill="#3d5e00"/>
+                        <circle cx="18" cy="20" r="2" fill="#3d5e00"/>
+                    </svg>
+                </div>
+                <span class="chain-label" data-i18n="chain.distributor">Distribuidor</span>
+            </div>
+            <div class="chain-connector"></div>
+            <div class="chain-dot-connector"></div>
+            <div class="chain-connector"></div>
+            <div class="chain-node">
+                <div class="chain-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 3h18v4H3z" stroke="#3d5e00" stroke-width="1.5" fill="#D4E952" fill-opacity="0.3"/>
+                        <path d="M3 7v14h18V7" stroke="#3d5e00" stroke-width="1.5"/>
+                        <path d="M9 7v14M15 7v14" stroke="#3d5e00" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                </div>
+                <span class="chain-label" data-i18n="chain.retailer">Minorista</span>
+            </div>
         </div>
-        <span class="chain-label">Retailer</span>
-      </div>
 
-    </div>
     </section>
+
     <!-- BENEFITS SECTION -->
     <section class="benefits">
-        <h2>Beneficios</h2>
-        <p class="subtitle">
+        <h2 data-i18n="benefits.title">Beneficios</h2>
+        <p class="section-subtitle" data-i18n="benefits.subtitle">
             Comprenden varios aspectos relacionados al desempeño de nuestra aplicación.
         </p>
-
-        <div class="cards">
-
+        <div class="card-grid">
             <div class="card">
-                <div class="icon">
-                    <img src="assets/images/laptop.png" alt="Herramientas Digitales">
-                </div>
-                <h3>Herramientas Digital</h3>
-                <p>
-                    Implementación de herramientas digitales que favorecen la interacción del usuario.
-                </p>
+                <div class="card-icon"><img src="assets/images/laptop.png" alt="Herramientas Digitales"></div>
+                <h3 data-i18n="benefits.card1.title">Herramientas Digital</h3>
+                <p  data-i18n="benefits.card1.desc">Implementación de herramientas digitales que favorecen la interacción del usuario.</p>
             </div>
-
             <div class="card">
-                <div class="icon">
-                    <img src="assets/images/camion.png" alt="Seguimiento">
-                </div>
-                <h3>Seguimiento en tiempo real</h3>
-                <p>
-                    Rastrea tus envíos por toda el mundo con geolocalización precisa.
-                    Supervisa el rendimiento de tu flota y optimiza las rutas de entrega en tiempo real.
-                </p>
+                <div class="card-icon"><img src="assets/images/truck.png" alt="Seguimiento"></div>
+                <h3 data-i18n="benefits.card2.title">Seguimiento en tiempo real</h3>
+                <p  data-i18n="benefits.card2.desc">Rastrea tus envíos por toda el mundo con geolocalización precisa.</p>
             </div>
-
             <div class="card">
-                <div class="icon">
-                    <img src="assets/images/grafico.png" alt="Análisis de calidad">
-                </div>
-                <h3>Análisis de Calidad</h3>
-                <p>
-                    Garantice una frescura absoluta con el registro continuo de datos climáticos
-                    y la información de control de calidad obtenida directamente de los sensores de transporte.
-                </p>
+                <div class="card-icon"><img src="assets/images/graph.png" alt="Análisis de calidad"></div>
+                <h3 data-i18n="benefits.card3.title">Análisis de Calidad</h3>
+                <p  data-i18n="benefits.card3.desc">Garantice una frescura absoluta con el registro continuo de datos climáticos.</p>
             </div>
-
         </div>
     </section>
+
     <!-- PLANS SECTION -->
-    <section class="planes">
-        <h2 class="planes-titulo">Nuestros Planes</h2>
-
-        <div class="planes-grid">
-
-            <!-- Plan Gratuito -->
-            <div class="card card-blanca">
-                <h3 class="plan-nombre">Plan Gratuito<br>Max 15 pedidos por mes</br></h3>
-                <div class="plan-precio">S/.0</div>
-                <hr class="plan-divisor">
+    <section class="plans">
+        <h2 class="plans-title" data-i18n="plans.title">Nuestros Planes</h2>
+        <div class="plans-grid">
+            <div class="card card-white">
+                <h3 class="plan-name">
+                    <span data-i18n="plans.free.name">Plan Gratuito</span><br>
+                    <span data-i18n="plans.free.limit">Max 15 pedidos por mes</span>
+                </h3>
+                <div class="plan-price" data-i18n="plans.free.price">S/.0</div>
+                <hr class="plan-divider">
                 <div class="plan-features">
                     <ul>
-                        <li>Gestión de pedidos</li>
-                        <li>Control de calidad</li>
-                        <li>Reportes</li>
+                        <li data-i18n="plans.free.f1">Gestión de pedidos</li>
+                        <li data-i18n="plans.free.f2">Control de calidad</li>
+                        <li data-i18n="plans.free.f3">Reportes</li>
                     </ul>
                     <ul>
-                        <li>Productores</li>
-                        <li>Incidencias</li>
-                        <li>Seguimiento</li>
+                        <li data-i18n="plans.free.f4">Productores</li>
+                        <li data-i18n="plans.free.f5">Incidencias</li>
+                        <li data-i18n="plans.free.f6">Seguimiento</li>
                     </ul>
                 </div>
             </div>
-
-            <div class="card card-verde">
-                <h3 class="plan-nombre">Plan Profesional</h3>
-                <div class="plan-precio">
-                    S/.150 <span class="plan-periodo">por mes</span>
+            <div class="card card-green">
+                <h3 class="plan-name" data-i18n="plans.pro.name">Plan Profesional</h3>
+                <div class="plan-price">
+                    <span data-i18n="plans.pro.price">S/.150</span>
+                    <span class="plan-period" data-i18n="plans.pro.period">por mes</span>
                 </div>
-                <hr class="plan-divisor">
-                <ul class="plan-lista">
-                    <li>Pedidos ilimitados</li>
-                    <li>Acceso completo a todas las funcionalidades</li>
+                <hr class="plan-divider">
+                <ul class="plan-list">
+                    <li data-i18n="plans.pro.f1">Pedidos ilimitados</li>
+                    <li data-i18n="plans.pro.f2">Acceso completo a todas las funcionalidades</li>
                 </ul>
             </div>
-
         </div>
     </section>
+
     <!-- CLIENTS SECTION -->
     <section class="clients">
-        <h2>Clientes</h2>
-        <p class="clients-subtitle">
-            Nuestra plataforma conecta a todo persona impulsada a mejorar su negocio, integrando
-            sus necesidades en un ecosistema eficiente y colaborativo.
+        <h2 data-i18n="clients.title">Una plataforma, tres perfiles</h2>
+        <p class="clients-subtitle" data-i18n="clients.subtitle">
+            Nuestra plataforma conecta a todos las personas impulsada a mejorar su negocio, integrando sus necesidades en un ecosistema eficiente y colaborativo.
         </p>
+        <div class="clients-grid">
 
-        <div class="clients-container">
-
-            <div class="client-box">
-                <h3>Clientes Comerciales</h3>
-                <img src="assets/images/comercial.jpg" alt="Clientes Comerciales">
+            <div class="client-card">
+                <div class="client-card-image">
+                    <img src="assets/images/productor.jpg" alt="Productores Agrícolas">
+                </div>
+                <div class="client-card-body">
+                    <div class="client-card-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="#3d5e00" stroke-width="1.8" fill="#D4E952" fill-opacity="0.4"/>
+                            <path d="M9 22V12h6v10" stroke="#3d5e00" stroke-width="1.8"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="clients.box2">Productores agrícolas</h3>
+                    <p data-i18n="clients.desc2">Gestiona cosechas, valida calidad y vende mejor.</p>
+                </div>
             </div>
 
-            <div class="client-box">
-                <h3>Productores Agrícolas</h3>
-                <img src="assets/images/productor.jpg" alt="Productores">
+            <div class="client-card">
+                <div class="client-card-image">
+                    <img src="assets/images/distributor.jpg" alt="Distribuidores">
+                </div>
+                <div class="client-card-body">
+                    <div class="client-card-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="8" width="22" height="10" rx="2" stroke="#3d5e00" stroke-width="1.8" fill="#D4E952" fill-opacity="0.4"/>
+                            <path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2" stroke="#3d5e00" stroke-width="1.8"/>
+                            <circle cx="6" cy="20" r="2" fill="#3d5e00"/>
+                            <circle cx="18" cy="20" r="2" fill="#3d5e00"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="clients.box3">Distribuidores</h3>
+                    <p data-i18n="clients.desc3">Coordinación y envíos de productos primarios.</p>
+                </div>
             </div>
 
-            <div class="client-box">
-                <h3>Distribuidores de Frutas</h3>
-                <img src="assets/images/distribuidor.jpg" alt="Distribuidores">
+            <div class="client-card">
+                <div class="client-card-image">
+                    <img src="assets/images/comercial.jpg" alt="Clientes Comerciales">
+                </div>
+                <div class="client-card-body">
+                    <div class="client-card-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3h18v4H3z" stroke="#3d5e00" stroke-width="1.8" fill="#D4E952" fill-opacity="0.4"/>
+                            <path d="M3 7v14h18V7" stroke="#3d5e00" stroke-width="1.8"/>
+                            <path d="M9 7v14M15 7v14" stroke="#3d5e00" stroke-width="1" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <h3 data-i18n="clients.box1">Clientes Comerciales</h3>
+                    <p data-i18n="clients.desc1">Recibe fruta fresca con trazabilidad asegurada.</p>
+                </div>
             </div>
 
         </div>
     </section>
 
+    <!-- STATS SECTION -->
+    <section class="stats">
+        <h2 class="stats-title" data-i18n="stats.title">Números que importan</h2>
+        <div class="stats-grid">
 
+            <div class="stat-card">
+                <div class="stat-value">30%</div>
+                <p class="stat-desc" data-i18n="stats.s1">menos errores operativos</p>
+                <div class="stat-bar">
+                    <div class="stat-bar-fill" style="width: 30%; background: #b0c840;"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-value">40%</div>
+                <p class="stat-desc" data-i18n="stats.s2">menos rechazos por calidad</p>
+                <div class="stat-bar">
+                    <div class="stat-bar-fill" style="width: 40%; background: #b0c840;"></div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-value">2.5x</div>
+                <p class="stat-desc" data-i18n="stats.s3">más eficiencia logística</p>
+                <div class="stat-bar">
+                    <div class="stat-bar-fill" style="width: 70%; background: #D4E952;"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <!-- TESTIMONIALS SECTION -->
-
-    <section class="testimonios">
-        <h2 class="testimonios-titulo">Testimonios</h2>
-
-        <div class="testimonios-grid">
-
+    <section class="testimonials">
+        <h2 class="testimonials-title" data-i18n="testimonials.title">Testimonios</h2>
+        <div class="testimonials-grid">
             <div class="card">
-                <div class="estrellas">
+                <div class="star-rating">
                     <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
                 </div>
-                <p class="testimonio-texto">
-                    "La gestión de inventario solía ser nuestro mayor quebradero de cabeza. Gracias a la
-                    analítica predictiva de FruitLogix, se ha convertido en nuestra mayor fortaleza operativa."
+                <p class="testimonial-text" data-i18n="testimonials.t1.text">
+                    "La gestión de inventario solía ser nuestro mayor quebradero de cabeza..."
                 </p>
-                <div class="autor">
-                    <img src="https://images.media.io/2023-blog/headshot-tips/author-headshot-1.jpg" alt="Sarah Jenkins"
-                         class="autor-foto">
-                    <div class="autor-info">
-                        <span class="autor-nombre">Sarah Jenkins</span>
-                        <span class="autor-cargo">Cliente Comercial</span>
-                    </div>
-                </div>
-            </div> 
-
-            <div class="card">
-                <div class="estrellas">
-                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-                </div>
-                <p class="testimonio-texto">
-                    "FruitLogix transformó por completo nuestras operaciones de la cadena de suministro.
-                    Nuestros índices de desperdicio se han reducido en un 40% y tenemos una visibilidad
-                    sin precedentes de nuestra carga."
-                </p>
-                <div class="autor">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxBUHPw2gR9OJZFtO9qff8qJOd9s-ejt0aUQ&s"
-                         alt="Marcus Thorne" class="autor-foto">
-                    <div class="autor-info">
-                        <span class="autor-nombre">Marcus Thorne</span>
-                        <span class="autor-cargo">Distribuidor</span>
+                <div class="author">
+                    <img src="https://images.media.io/2023-blog/headshot-tips/author-headshot-1.jpg" alt="Sarah Jenkins" class="author-photo">
+                    <div class="author-info">
+                        <span class="author-name" data-i18n="testimonials.t1.name">Sarah Jenkins</span>
+                        <span class="author-role" data-i18n="testimonials.t1.role">Cliente Comercial</span>
                     </div>
                 </div>
             </div>
-
             <div class="card">
-                <div class="estrellas">
+                <div class="star-rating">
                     <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
                 </div>
-                <p class="testimonio-texto">
-                    "El seguimiento en tiempo real supone un cambio radical para nuestros envíos
-                    internacionales. El panel de control intuitivo facilita enormemente la gestión diaria."
+                <p class="testimonial-text" data-i18n="testimonials.t2.text">
+                    "FruitLogix transformó por completo nuestras operaciones..."
                 </p>
-                <div class="autor">
-                    <img
-                            src="https://img.freepik.com/foto-gratis/vista-lateral-mujer-recogiendo-frutas_23-2149514630.jpg?semt=ais_hybrid&w=740&q=80"
-                            alt="Elena Rostova" class="autor-foto">
-                    <div class="autor-info">
-                        <span class="autor-nombre">Elena Rostova</span>
-                        <span class="autor-cargo">Productora de frutas</span>
+                <div class="author">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxBUHPw2gR9OJZFtO9qff8qJOd9s-ejt0aUQ&s" alt="Marcus Thorne" class="author-photo">
+                    <div class="author-info">
+                        <span class="author-name" data-i18n="testimonials.t2.name">Marcus Thorne</span>
+                        <span class="author-role" data-i18n="testimonials.t2.role">Distribuidor</span>
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="star-rating">
+                    <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                </div>
+                <p class="testimonial-text" data-i18n="testimonials.t3.text">
+                    "El seguimiento en tiempo real supone un cambio radical..."
+                </p>
+                <div class="author">
+                    <img src="https://img.freepik.com/foto-gratis/vista-lateral-mujer-recogiendo-frutas_23-2149514630.jpg?semt=ais_hybrid&w=740&q=80" alt="Elena Rostova" class="author-photo">
+                    <div class="author-info">
+                        <span class="author-name" data-i18n="testimonials.t3.name">Elena Rostova</span>
+                        <span class="author-role" data-i18n="testimonials.t3.role">Productora de frutas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA SECTION -->
+    <section class="cta">
+        <div class="cta-box">
+            <h2 class="cta-title" data-i18n="cta.title">Empieza a digitalizar tu logística hoy</h2>
+            <p class="cta-desc" data-i18n="cta.desc">Únete a productores y distribuidores que ya optimizan su cadena con FruitLogix.</p>
+            <button class="cta-btn" data-i18n="cta.btn">Registrarse</button>
         </div>
     </section>
 
     <!-- FOOTER -->
-
     <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
 
-        <div class="footer-politicas">
-            <a href="#">Políticas de Privacidad</a>
-            <a href="#">Políticas de Cookies</a>
-            <a href="#">Políticas de Calidad</a>
-        </div>
+                <div class="footer-brand">
+                    <div class="footer-brand-logo">
+                        <img src="assets/images/logo.ico" alt="FruitLogix logo" class="footer-logo-icon">
+                        <span class="footer-logo-name">FruitLogix</span>
+                    </div>
+                    <p class="footer-brand-desc" data-i18n="footer.brand.desc">
+                        Optimizando tu cadena de suministro
+                    </p>
+                    <button class="footer-register-btn" data-i18n="footer.register">
+                        Registrarse &nbsp;→
+                    </button>
+                </div>
 
-        <div class="footer-centro">
-            <span class="footer-logo">FruitLogix</span>
-            <div class="footer-redes">
+                <div class="footer-col">
+                    <h4 class="footer-col-title" data-i18n="footer.nav.title">Navegacion</h4>
+                    <ul class="footer-col-links">
+                        <li><a href="#" data-i18n="nav.inicio">Inicio</a></li>
+                        <li><a href="#" data-i18n="nav.beneficios">Beneficios</a></li>
+                        <li><a href="#" data-i18n="footer.nav.plans">Planes</a></li>
+                        <li><a href="#" data-i18n="nav.clientes">Clientes</a></li>
+                    </ul>
+                </div>
 
-                <a href="#" aria-label="Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#000000">
-                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                    </svg>
-                </a>
+                <div class="footer-col">
+                    <h4 class="footer-col-title" data-i18n="footer.legal.title">Legal</h4>
+                    <ul class="footer-col-links">
+                        <li><a href="#" data-i18n="footer.privacy">Politicas de Privacidad</a></li>
+                        <li><a href="#" data-i18n="footer.cookies">Politicas de Cookies</a></li>
+                        <li><a href="#" data-i18n="footer.quality">Politicas de Calidad</a></li>
+                    </ul>
+                </div>
 
-                <a href="#" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                         stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                        <circle cx="12" cy="12" r="4" />
-                        <circle cx="17.5" cy="6.5" r="1" fill="#000000" stroke="none" />
-                    </svg>
-                </a>
-
-                <a href="#" aria-label="X">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#000000">
-                        <path
-                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                </a>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#000">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="17.5" cy="6.5" r="1" fill="#000" stroke="none"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="X" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#000">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
 
             </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-i18n="footer.copyright">
+                    @ 2025 FruitLogix. Todos los derechos reservados.
+                </p>
+            </div>
         </div>
-
     </footer>
-</body>
 
+    <script src="assets/i18n/i18n.js"></script>
+    <script>
+
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+      function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        mobileMenu.setAttribute('aria-hidden', !isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeMobileMenu();
+      });
+    </script>
+
+</body>
 </html>
