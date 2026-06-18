@@ -78,5 +78,16 @@
   "footer.privacy": "Privacy Policy",
   "footer.cookies": "Cookie Policy",
   "footer.quality": "Quality Policy",
-  "footer.copyright": "@ 2025 FruitLogix. All rights reserved."
+  "footer.copyright": "@ 2025 FruitLogix. All rights reserved.",
+  "team.title": "The Minds Behind the Orchard",
+  "team.member1.name": "Esteban Eduardo Chávez Bardales",
+  "team.member1.desc": "Responsible, creative, and skilled at solving problems quickly.",
+  "team.member2.name": "Sergio Joaquin Evangelista Ygnacio",
+  "team.member2.desc": "Organized and dedicated, focused on efficient and structured results.",
+  "team.member3.name": "Johan Alexis Contreras Granados",
+  "team.member3.desc": "Orderly person, committed and innovative with a focus on quality.",
+  "team.member4.name": "Gonzalo Alexander Jaime Forcelledo",
+  "team.member4.desc": "Curious and passionate about continuous learning and new experiences.",
+  "team.member5.name": "Daril Johan Palomino Vilcañaupa",
+  "team.member5.desc": "Persevering, empathetic, and constant, focused on overcoming daily challenges."
 }
