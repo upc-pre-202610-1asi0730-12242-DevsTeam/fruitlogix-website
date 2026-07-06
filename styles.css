@@ -1177,10 +1177,6 @@ video {
   transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.stat-card.animate-in .stat-bar-fill {
-  width: var(--target-width) !important;
-}
-
 /* PREMIUM TEAM SECTION */
 .premium-team {
   background: linear-gradient(to bottom, var(--color-bg-light) 55%, var(--color-bg-accent) 55%);
